@@ -9,5 +9,5 @@ jobs:
     steps:
       - name: Print a greeting
         run: |
-          echo "Hello there"
+          echo Hello there
   
