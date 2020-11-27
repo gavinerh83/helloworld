@@ -1,0 +1,14 @@
+name: Simple StartUp
+
+on:
+  push:
+    branches: [master]
+jobs:
+  my-job:
+    name: My job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a greeting
+        run: |
+          echo "Hello there"
+  
