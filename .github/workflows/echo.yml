@@ -1,12 +1,17 @@
-name: Simple StartUp
+name: Setting up Go environment
 on:
   push:
-    branches: [master]
 jobs:
-  my-job:
-    runs-on: ubuntu-latest
+  setting-up-go:
+    runs-on: ubuntu-18.04
+    strategy:
+      matrix:
+        go: ['1.13', '1.14']
+    name: Go ${{ matrix.go }} example
     steps:
-      - name: Print a greeting
-        run: |
-          echo Hello there
-  
+      - uses: actions/checkout@v2
+      - name: Setup go
+        uses: actions/setup-go@v2
+        with:
+            go-version: ${{ matrix.go }}
+        run: go version
